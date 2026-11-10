@@ -1,0 +1,372 @@
+/* ============================================================================
+   Fubo Web component library (prefix fw-)  -  Figma file vMOH5IODiHrT84m42ffiso, page 33:136419
+   Source: values read per variant from the Figma file (team notes of 2026-10-08, read through the Plugin API),
+   spot-checked against Dev Mode code on 2026-10-15 (Button 467:6286, Icon Button hover 467:6431, node sizes).
+   Provenance tags in comments: MEASURED = read from the variant. DERIVED = from tokens or a sibling variant.
+   ASSUMED = no source, listed in SPEC.md "Unknowns".
+   States: hover = :hover or class .h  /  pressed = .is-pressed  /  disabled = .is-disabled or [disabled]  /  selected = .is-selected
+   Fubo US only. English only.
+   ========================================================================== */
+:root{
+  --fw-font:'FT Regola Neue',system-ui,sans-serif;
+  --fw-bg:#080a13;                 /* neutral-darkest */
+  --fw-neutral-darker:#161822;
+  --fw-neutral-dark:#1d1f2a;
+  --fw-neutral-medium-dark:#242733;
+  --fw-neutral-medium:#414455;
+  --fw-neutral-lighter:#e1e3ef;
+  --fw-neutral-lightest:#fafbff;
+  --fw-text:#fafbff;
+  --fw-text-inverse:#080a13;
+  --fw-text-subtle:#c8ccdf;
+  --fw-text-subtlest:#a2a7c0;
+  --fw-text-disabled:rgba(255,255,255,.3);
+  --fw-on-brand:#fff;
+  --fw-brand:#e03100;
+  --fw-live:#e03100;
+  --fw-error:#d20019;
+  --fw-error-light:#ff6377;
+  --fw-blue:#0368ff;
+  --fw-green:#42ca80;
+  --fw-white-o05:rgba(255,255,255,.05);
+  --fw-white-o10:rgba(255,255,255,.1);
+  --fw-white-o15:rgba(255,255,255,.15);
+  --fw-white-o30:rgba(255,255,255,.3);
+  --fw-black-o15:rgba(0,0,0,.15);
+  --fw-black-o30:rgba(0,0,0,.3);
+  --fw-black-o60:rgba(0,0,0,.6);
+  --fw-black-o85:rgba(0,0,0,.85);
+  --fw-scrim-lighter:rgba(0,0,0,.4);
+  --fw-circle:500px;
+}
+.fw-ico{width:24px;height:24px;flex:none;fill:currentColor;display:inline-block}
+.fw-root{font-family:var(--fw-font);color:var(--fw-text)}
+
+/* ---- Button (467:6285). Normal 48 high / Small 42 high. MEASURED ---- */
+.fw-btn{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:12px 16px;border:0;border-radius:var(--fw-circle);background:var(--fw-neutral-lighter);color:var(--fw-text-inverse);font-family:var(--fw-font);font-weight:600;font-size:16px;line-height:1.25;letter-spacing:.16px;white-space:nowrap;cursor:pointer}
+.fw-btn .fw-ico{width:24px;height:24px}
+.fw-btn--sm{height:42px;padding:12px;font-size:14px;letter-spacing:.14px}
+.fw-btn--sm .fw-ico{width:16px;height:16px}
+.fw-btn:hover,.fw-btn.h,.fw-btn.is-pressed{background:var(--fw-neutral-lightest)}
+.fw-btn--branded{background:var(--fw-brand);color:var(--fw-on-brand)}
+.fw-btn--branded:hover,.fw-btn--branded.h{background:var(--fw-brand)}               /* Normal and Hover are identical in the file */
+.fw-btn--branded.is-pressed{background:#ff4b18}                                       /* unbound hex in Figma */
+.fw-btn--secondary{background:var(--fw-white-o10);color:var(--fw-neutral-lighter)}
+.fw-btn--secondary.fw-btn--sm{color:var(--fw-text)}                                   /* library inconsistency, kept as measured */
+.fw-btn--secondary:hover,.fw-btn--secondary.h{background:var(--fw-white-o15);color:var(--fw-text)}
+.fw-btn--secondary.is-pressed{background:rgba(250,251,255,.3);color:var(--fw-text)}   /* unbound */
+.fw-btn--tertiary{background:transparent;color:var(--fw-neutral-lighter)}
+.fw-btn--tertiary:hover,.fw-btn--tertiary.h,.fw-btn--tertiary.is-pressed{background:transparent;color:var(--fw-text)}
+.fw-btn.is-disabled,.fw-btn[disabled]{background:var(--fw-white-o05);color:var(--fw-text-disabled);pointer-events:none;cursor:default}
+.fw-btn--tertiary.is-disabled,.fw-btn--tertiary[disabled]{background:transparent}
+
+/* ---- Icon Button (467:6426). Large 64 / Normal 48 / Small 32 / XS 20. MEASURED ---- */
+.fw-ibtn{position:relative;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;padding:12px;border:1px solid transparent;border-radius:var(--fw-circle);background:var(--fw-neutral-lighter);color:var(--fw-text-inverse);cursor:pointer}
+.fw-ibtn .fw-ico{width:24px;height:24px}
+.fw-ibtn--lg{width:64px;height:64px;padding:16px}.fw-ibtn--lg .fw-ico{width:32px;height:32px}
+.fw-ibtn--sm{width:32px;height:32px;padding:8px}.fw-ibtn--sm .fw-ico{width:16px;height:16px}
+.fw-ibtn--xs{width:20px;height:20px;padding:4px}.fw-ibtn--xs .fw-ico{width:12px;height:12px}
+.fw-ibtn:hover,.fw-ibtn.h{background:var(--fw-neutral-lightest)}
+.fw-ibtn--branded{background:#d52e00;color:var(--fw-on-brand)}                         /* unbound hex, differs from Button Branded */
+.fw-ibtn--branded:hover,.fw-ibtn--branded.h{background:var(--fw-brand)}
+.fw-ibtn--secondary{background:var(--fw-black-o60);color:var(--fw-text)}
+.fw-ibtn--secondary:hover,.fw-ibtn--secondary.h{background:var(--fw-black-o85)}
+.fw-ibtn--tertiary,.fw-ibtn--tertiary:hover,.fw-ibtn--tertiary.h{background:transparent;color:var(--fw-text)}
+.fw-ibtn.is-disabled,.fw-ibtn[disabled]{background:var(--fw-white-o05);color:var(--fw-text-disabled);pointer-events:none}
+.fw-ibtn--tertiary.is-disabled{background:transparent}
+.fw-ibtn__badge{position:absolute;left:24px;top:-8px}                                  /* notification badge */
+/* hover tooltip: sits 52px above the button, 4px radius, padding 8, label 14 Medium, pointer 12x6, drop shadow 0 4 4 .54 */
+.fw-ibtn__tip{position:absolute;left:50%;bottom:52px;transform:translateX(-50%);display:none;flex-direction:column;align-items:center;pointer-events:none}
+.fw-ibtn:hover .fw-ibtn__tip,.fw-ibtn.h .fw-ibtn__tip{display:flex}
+
+/* ---- Tooltip (467:6544). Down (default), Up, Left, Right. MEASURED ---- */
+.fw-tip{display:inline-flex;flex-direction:column;align-items:center;font-family:var(--fw-font)}
+.fw-tip__box{padding:8px;border-radius:4px;background:var(--fw-neutral-lightest);color:var(--fw-text-inverse);font-weight:500;font-size:14px;line-height:1.25;letter-spacing:.14px;white-space:nowrap;filter:drop-shadow(0 4px 4px rgba(0,0,0,.54))}
+.fw-tip__point{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid var(--fw-neutral-lightest)}
+.fw-tip--up{flex-direction:column-reverse}.fw-tip--up .fw-tip__point{border-top:0;border-bottom:6px solid var(--fw-neutral-lightest)}
+.fw-tip--left{flex-direction:row-reverse}.fw-tip--left .fw-tip__point{border:6px solid transparent;border-left:6px solid var(--fw-neutral-lightest);border-right:0}
+.fw-tip--right{flex-direction:row}.fw-tip--right .fw-tip__point{border:6px solid transparent;border-right:6px solid var(--fw-neutral-lightest);border-left:0}
+
+/* ---- Inline Button (467:6566): bare text + icon, gap 4. Small 18 / Normal 20 / Large 23. MEASURED ---- */
+.fw-inline{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0;border:0;border-radius:8px;background:none;color:var(--fw-text-subtle);font-family:var(--fw-font);font-weight:600;font-size:16px;line-height:1.25;cursor:pointer}
+.fw-inline .fw-ico{width:16px;height:16px}
+.fw-inline--sm{height:18px;font-size:14px}.fw-inline--sm .fw-ico{width:14px;height:14px}
+.fw-inline--lg{height:23px;font-size:18px}.fw-inline--lg .fw-ico{width:18px;height:18px}
+.fw-inline:hover,.fw-inline.h{color:var(--fw-text)}
+.fw-inline.is-disabled{color:var(--fw-text-disabled);pointer-events:none}
+
+/* ---- Chips (Filter 467:11919, Navigation 467:11939, Group 467:11886). Filter 36 high pill, Navigation radius 8. MEASURED ---- */
+.fw-chip{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:8px 12px;border:0;border-radius:var(--fw-circle);background:var(--fw-black-o15);box-shadow:inset 0 0 0 2px var(--fw-white-o10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:var(--fw-text-subtle);font-family:var(--fw-font);font-weight:600;font-size:14px;line-height:1.25;letter-spacing:.14px;white-space:nowrap;cursor:pointer}
+.fw-chip .fw-ico{width:16px;height:16px}
+.fw-chip:hover,.fw-chip.h{background:var(--fw-white-o15);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;color:var(--fw-text)}
+.fw-chip.is-selected{background:var(--fw-white-o15);box-shadow:inset 0 0 0 2px var(--fw-white-o30);color:var(--fw-text)}
+.fw-chip.is-selected:hover,.fw-chip.is-selected.h{background:var(--fw-neutral-medium);box-shadow:none}
+.fw-chip--feature{background:rgba(3,104,255,.15);box-shadow:inset 0 0 0 2px var(--fw-blue);color:var(--fw-text)}   /* blue-medium-o15 */
+.fw-chip--feature:hover,.fw-chip--feature.h{background:rgba(3,104,255,.3);box-shadow:none}
+.fw-chip--feature.is-selected{background:rgba(3,104,255,.3);box-shadow:inset 0 0 0 2px var(--fw-blue)}
+.fw-chip--feature.is-selected:hover,.fw-chip--feature.is-selected.h{background:var(--fw-blue);box-shadow:none}
+.fw-chip--nav{border-radius:8px;color:var(--fw-text)}
+.fw-chips{display:flex;gap:16px}.fw-chips--v{flex-direction:column;align-items:flex-start}
+
+/* ---- Badges (Status 467:5848): Primary = live red, Secondary = scrim. SM 21 high / LG 26 high. MEASURED sizes, DERIVED type ---- */
+.fw-badge{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:4px;height:21px;padding:4px 8px;border:1px solid rgba(0,0,0,.3);border-radius:24px;background:var(--fw-live);color:var(--fw-text);font-family:var(--fw-font);font-weight:700;font-size:10px;line-height:12px;letter-spacing:.3px;white-space:nowrap}
+.fw-badge--secondary{background:var(--fw-scrim-lighter);border-color:var(--fw-white-o15)}   /* repo update 2026-10-08 */
+.fw-badge--lg{height:26px;padding:6px 10px;font-size:12px;line-height:14px}               /* ASSUMED type size for LG */
+.fw-badge .fw-ico{width:12px;height:12px}
+.fw-badge--lg .fw-ico{width:14px;height:14px}
+.fw-badge--icon{padding:4px}
+/* notification badge dot (467:... 2010:14421): Large 16 / Normal 12 / Small 8 */
+.fw-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--fw-live);vertical-align:middle}
+.fw-dot--lg{width:16px;height:16px}.fw-dot--sm{width:8px;height:8px}
+.fw-dot--secondary{background:#62aaff}                                                      /* ASSUMED */
+/* private .Notification Badge with icon (1577:14397) */
+.fw-nbadge{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;height:20px;padding:2px 4px;border-radius:var(--fw-circle);background:var(--fw-neutral-medium-dark);box-shadow:inset 0 0 0 1px var(--fw-white-o15)}
+.fw-nbadge .fw-ico{width:16px;height:16px}
+
+/* ---- Progress Bar (467:40159): Small 4 / Large 8, on-light / on-dark track. MEASURED ---- */
+.fw-progress{position:relative;box-sizing:border-box;height:4px;border-radius:var(--fw-circle);overflow:hidden;background:var(--fw-black-o30)}
+.fw-progress--lg{height:8px}
+.fw-progress--on-dark{background:var(--fw-white-o15)}
+.fw-progress>i{position:absolute;left:0;top:0;bottom:0;width:var(--p,40%);background:var(--fw-neutral-lightest)}
+.fw-progress--live>i{background:var(--fw-live)}
+
+/* ---- Playback Scrubber (467:42503) + handle (467:42469). Normal / Compact. MEASURED ---- */
+.fw-scrub{display:flex;align-items:center;gap:16px;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-scrub__bar{position:relative;flex:1;height:6px;border-radius:24px;background:var(--fw-neutral-medium-dark);overflow:visible}
+.fw-scrub__fill{position:absolute;left:0;top:0;bottom:0;width:var(--p,35%);border-radius:20px;background:var(--fw-live)}
+.fw-scrub__fill--vod{background:#fafafa}                                                    /* unbound hex in Figma */
+.fw-scrub__time{font-weight:500;font-size:14px;line-height:1.25;letter-spacing:.14px}
+.fw-scrub--compact .fw-scrub__time{display:none}
+.fw-scrub__tick{position:absolute;top:-5px;width:6px;height:16px;border-radius:3px;background:var(--fw-neutral-lighter);left:var(--p,35%)}
+.fw-handle{display:inline-flex;flex-direction:column;align-items:center;gap:12px;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-handle__thumb{width:204px;height:115px;border-radius:8px;overflow:hidden;background:var(--fw-neutral-darker)}
+.fw-handle__thumb>img{width:100%;height:100%;object-fit:cover;display:block}
+.fw-handle__time{font-weight:700;font-size:18px;line-height:1.25}
+.fw-handle__knob{width:24px;height:24px;border-radius:50%;background:var(--fw-neutral-lightest);box-shadow:0 4px 16px rgba(0,0,0,.5)}
+.fw-handle--compact{gap:4px}.fw-handle--compact .fw-handle__thumb{width:116px;height:66px;border-radius:4px}.fw-handle--compact .fw-handle__knob{width:16px;height:16px}
+
+/* ---- Main Navigation (467:41787): 64 high, #080a13, 32 side padding (16 below 600). MEASURED ---- */
+.fw-nav{box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 32px;background:var(--fw-bg);font-family:var(--fw-font);color:var(--fw-text)}
+.fw-nav__left{display:flex;align-items:center;gap:32px;height:100%}
+.fw-nav__logo{width:64px;height:22px;display:block}
+.fw-nav__right{display:flex;align-items:center;gap:4px}
+.fw-nav__item{display:flex;align-items:center;height:64px;color:var(--fw-text-subtlest);font-weight:600;font-size:16px;line-height:1.25;letter-spacing:.16px;text-decoration:none;cursor:pointer;position:relative}
+.fw-nav__item:hover,.fw-nav__item.h,.fw-nav__item.is-selected{color:var(--fw-text)}
+.fw-nav__item--icon{width:48px;justify-content:center}
+.fw-nav__item--icon .fw-ico{width:24px;height:24px}
+/* selected indicator could not be read from Figma (mixed stroke): an underline is ASSUMED */
+.fw-nav__item.is-selected::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--fw-text)}
+@media (max-width:599px){.fw-nav{padding:0 16px}.fw-nav__right{gap:8px}}
+.fw-nav__search{flex:1;height:44px;border-radius:4px;background:var(--fw-white-o05);box-shadow:inset 0 0 0 1px #000}
+
+/* ---- Row Card (352:78793). Vertical stack: thumb, gap 16, footer. Hover: 4px focus ring + gap 24. MEASURED ---- */
+.fw-card{box-sizing:border-box;display:flex;flex-direction:column;gap:16px;width:var(--w,318px);font-family:var(--fw-font);color:var(--fw-text)}
+.fw-card__thumb{position:relative;box-sizing:border-box;width:100%;aspect-ratio:var(--ar,16/9);border-radius:16px;overflow:hidden;background:var(--fw-neutral-darker);box-shadow:inset 0 0 0 2px var(--fw-white-o15)}
+.fw-card__thumb>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fw-card__thumb::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--fw-white-o15);pointer-events:none}   /* repo 2026-10-08: 1px white-o15 */
+.fw-card__foot{display:flex;flex-direction:column;gap:4px;min-height:33px}
+.fw-card__title{font-weight:600;font-size:20px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fw-card__sub{font-weight:400;font-size:16px;line-height:1.25;color:var(--fw-text-subtle);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fw-card--sm{--w:318px}
+.fw-card--md{--w:432px}.fw-card--md .fw-card__thumb{border-radius:24px}
+.fw-card--lg{--w:660px}.fw-card--lg .fw-card__thumb{border-radius:32px}.fw-card--lg .fw-card__title{font-size:24px}
+.fw-card--p34{--w:204px;--ar:3/4}.fw-card--p34 .fw-card__title{font-size:18px}.fw-card--p34 .fw-card__sub{font-size:14px}
+.fw-card--p23{--w:204px;--ar:2/3}.fw-card--p23 .fw-card__title{font-size:18px;white-space:normal;max-height:46px}.fw-card--p23 .fw-card__sub{font-size:14px}
+.fw-card--p23.fw-card--md{--w:318px}
+.fw-card--p23.fw-card--lg{--w:432px}
+/* hover / focus: ring 4px #fafbff, 4px padding (radius = thumb radius + 4), gap 16 -> 24 */
+.fw-card:hover,.fw-card.h{gap:24px}
+.fw-card:hover .fw-card__thumb,.fw-card.h .fw-card__thumb{outline:4px solid var(--fw-neutral-lightest);outline-offset:4px}
+.fw-card__tag{position:absolute;left:8px;top:8px}
+.fw-card__bar{position:absolute;left:0;right:0;bottom:0}
+
+/* ---- Stacked Card (467:7526): 736x160, thumb + text, radius 16, #161822. Hover ring 4px. MEASURED ---- */
+.fw-stack{box-sizing:border-box;display:flex;gap:24px;width:736px;height:160px;border-radius:16px;background:var(--fw-neutral-darker);overflow:visible;font-family:var(--fw-font);color:var(--fw-text);position:relative}
+.fw-stack__thumb{flex:none;width:284px;height:160px;border-radius:16px 0 0 16px;overflow:hidden;background:var(--fw-neutral-medium-dark)}
+.fw-stack__thumb>img{width:100%;height:100%;object-fit:cover}
+.fw-stack__body{display:flex;flex-direction:column;justify-content:center;gap:4px;padding-right:24px;min-width:0}
+.fw-stack__title{font-weight:600;font-size:20px;line-height:1.25}
+.fw-stack__sub{font-size:16px;line-height:1.25;color:var(--fw-text-subtle)}
+.fw-stack:hover::after,.fw-stack.h::after{content:"";position:absolute;inset:-8px;border:4px solid var(--fw-neutral-lightest);border-radius:20px;pointer-events:none}   /* radius 20 Wide, 16 Poster */
+
+/* ---- Carousel header + grid layout (467:11639 / 467:11795). gap 24 everywhere. MEASURED ---- */
+.fw-carousel{display:flex;flex-direction:column;gap:24px;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-carousel__head{display:flex;align-items:center;justify-content:space-between}
+.fw-carousel__title{margin:0;font-weight:600;font-size:24px;line-height:1.25}      /* repo update: heading.lg (was md 20) */
+.fw-carousel__row{display:flex;gap:24px;overflow-x:auto}
+.fw-grid{display:grid;gap:24px;font-family:var(--fw-font)}
+.fw-grid--3{grid-template-columns:repeat(3,318px)}
+.fw-grid--4{grid-template-columns:repeat(4,432px)}
+.fw-grid--6{grid-template-columns:repeat(6,204px)}
+
+/* ---- Ad Timer (467:6616): 8px radius (unbound), black-o60. Normal 233x37 / Compact 85x29. MEASURED ---- */
+.fw-adtimer{box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;padding:8px;border-radius:8px;background:var(--fw-black-o60);font-family:var(--fw-font);font-weight:700;font-size:16px;line-height:1.25;color:var(--fw-text)}
+.fw-adtimer--compact{padding:4px}
+.fw-adtimer .fw-badge{background:#06070a;border:1px solid var(--fw-neutral-lightest)}
+
+/* ---- Spinner (467:40214): ring only. XS12 S16 M24 L32 XL48. MEASURED ---- */
+.fw-spin{width:24px;height:24px;border-radius:50%;box-sizing:border-box;border:4px solid rgba(250,251,255,.2);border-top-color:var(--fw-neutral-lightest);animation:fw-spin .9s linear infinite}
+.fw-spin--xs{width:12px;height:12px;border-width:2px}.fw-spin--s{width:16px;height:16px;border-width:2px}
+.fw-spin--l{width:32px;height:32px}.fw-spin--xl{width:48px;height:48px;border-width:6px}
+.fw-spin--on-light{border-color:rgba(8,10,19,.2);border-top-color:var(--fw-bg)}
+@keyframes fw-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.fw-spin{animation-duration:3s}}
+
+/* ---- Claim (1503:37705): Normal / Outlined / Transparent, 34 high pill. MEASURED ---- */
+.fw-claim{box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;height:34px;padding:8px 12px;border-radius:var(--fw-circle);background:var(--fw-neutral-dark);color:var(--fw-text);font-family:var(--fw-font);font-weight:500;font-size:14px;line-height:1.25;letter-spacing:.14px;white-space:nowrap}
+.fw-claim .fw-ico{width:16px;height:16px}
+.fw-claim--outlined{background:var(--fw-black-o60);box-shadow:inset 0 0 0 1px var(--fw-text-subtle)}
+.fw-claim--transparent{background:transparent}
+
+/* ---- Offer Item (1503:37540): container 424x244, padding 16/24, gap 24, radius 8 (unbound), #242733. MEASURED ---- */
+.fw-offer{box-sizing:border-box;display:flex;flex-direction:column;gap:24px;width:424px;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-offer--box{padding:16px 24px;border-radius:8px;background:var(--fw-neutral-medium-dark)}
+.fw-offer__head{display:flex;align-items:center;gap:16px}
+.fw-offer__logo{width:114px;height:40px;object-fit:contain}
+.fw-offer__title{font-weight:600;font-size:18px;line-height:1.25}
+.fw-offer__sub{font-size:14px;line-height:1.25}
+.fw-offer__legal{margin:0;font-size:12px;line-height:1.25;color:var(--fw-text-subtlest)}
+.fw-offer .fw-btn{width:100%}
+
+/* ---- Metadata Stack (467:40285): Normal 424 / Compact 276. gap 16. MEASURED ---- */
+.fw-meta{display:flex;flex-direction:column;gap:16px;width:424px;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-meta--compact{width:276px}
+.fw-meta__net{display:flex;align-items:center;gap:16px}
+.fw-meta__net>img{height:24px;width:38px;object-fit:contain}
+.fw-meta__body{display:flex;flex-direction:column;gap:8px}
+.fw-meta__tags{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+.fw-meta__title{margin:0;font-weight:600;font-size:40px;line-height:1.25;max-height:100px;overflow:hidden}
+.fw-meta__sub{font-size:18px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fw-meta__desc{margin:0;font-size:16px;line-height:1.5;color:var(--fw-text-subtle);max-height:72px;overflow:hidden}
+.fw-meta--compact .fw-meta__title{font-size:18px;max-height:46px}
+
+/* ---- Avatar / Profile Indicator / Profile Selector (467:41116/41141/41161). MEASURED ---- */
+.fw-avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;background:var(--fw-neutral-medium);display:inline-block}
+.fw-avatar--lg{width:144px;height:144px}.fw-avatar--md{width:96px;height:96px}.fw-avatar--xs{width:24px;height:24px}
+.fw-avatar:hover,.fw-avatar.h{box-shadow:0 0 0 4px #fafafa}
+.fw-avatar--lg:hover,.fw-avatar--lg.h,.fw-avatar--md:hover,.fw-avatar--md.h{box-shadow:0 0 0 6px #fafafa}
+.fw-avatar--xs:hover,.fw-avatar--xs.h{box-shadow:0 0 0 2px #fafafa}
+.fw-profile{display:inline-flex;align-items:center;gap:12px;font-family:var(--fw-font);font-weight:600;font-size:20px;color:var(--fw-text)}
+.fw-profile--sm{font-size:16px}
+.fw-psel{display:inline-flex;flex-direction:column;align-items:center;gap:16px;width:160px;font-family:var(--fw-font);font-weight:600;font-size:18px;color:var(--fw-text)}
+.fw-psel--sm{width:120px;gap:12px;font-size:16px}
+
+/* ---- Dialog (467:41224): box 480 (343 phone), radius 8, #1d1f2a, scrim black-o60 at .85. MEASURED ---- */
+.fw-scrim{position:absolute;inset:0;background:var(--fw-black-o60);opacity:.85}
+.fw-dialog{position:relative;box-sizing:border-box;width:480px;max-width:100%;padding:48px 48px 64px;display:flex;flex-direction:column;gap:32px;border-radius:8px;background:var(--fw-neutral-dark);font-family:var(--fw-font);color:var(--fw-text)}
+.fw-dialog--phone{width:343px}
+.fw-dialog--tablet,.fw-dialog--phone{padding:32px 48px 48px;gap:24px}
+.fw-dialog__title{margin:0;font-weight:600;font-size:24px;line-height:1.25}
+.fw-dialog__body{margin:0;font-size:16px;line-height:1.5;color:var(--fw-text-subtle)}
+.fw-dialog__actions{display:flex;flex-direction:column;gap:16px}
+.fw-dialog__close{position:absolute;right:16px;top:16px}
+.fw-dialog__slot{padding:16px 0;background:#161822}                      /* unbound hex */
+
+/* ---- Menu (467:11595) + .Menu Item (467:11605): 216 wide, radius 8, #1d1f2a, shadow. MEASURED ---- */
+.fw-menu{box-sizing:border-box;width:216px;padding:8px 0;border-radius:8px;background:var(--fw-neutral-dark);box-shadow:0 8px 20px rgba(0,0,0,.5);font-family:var(--fw-font)}
+.fw-menu__item{display:flex;align-items:center;gap:8px;height:52px;padding:16px;box-sizing:border-box;color:var(--fw-neutral-lighter);font-size:16px;line-height:1.25;cursor:pointer}
+.fw-menu__item:hover,.fw-menu__item.h{background:var(--fw-neutral-medium-dark);color:var(--fw-text)}
+.fw-menu__item.is-selected{color:var(--fw-text)}
+.fw-menu__item .fw-ico{width:16px;height:16px}
+.fw-menu__sep{height:1px;margin:0 8px;background:var(--fw-neutral-medium-dark)}
+.fw-menu__sep:hover{background:var(--fw-neutral-medium)}
+
+/* ---- Inputs (467:41567 single, 467:41500 multi, 467:41464 code). Medium 44 / Small 36. MEASURED ---- */
+.fw-input{display:flex;flex-direction:column;gap:8px;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-input__label{font-weight:500;font-size:14px;line-height:1.25}
+.fw-input__field{box-sizing:border-box;display:flex;align-items:center;gap:8px;height:44px;padding:12px;border-radius:4px;background:var(--fw-white-o05);box-shadow:inset 0 0 0 1px #000}
+.fw-input__field input{flex:1;min-width:0;border:0;outline:0;background:none;color:var(--fw-text);font-family:var(--fw-font);font-size:16px;line-height:1.25}
+.fw-input__field input::placeholder{color:var(--fw-text-subtlest)}
+.fw-input__field .fw-ico{width:16px;height:16px}
+.fw-input--sm .fw-input__field{height:36px;padding:8px}.fw-input--sm .fw-input__field .fw-ico{width:12px;height:12px}
+.fw-input__field:hover,.fw-input__field.h{box-shadow:inset 0 0 0 1px var(--fw-neutral-medium)}
+.fw-input__field:focus-within,.fw-input__field.f{box-shadow:inset 0 0 0 1px var(--fw-neutral-lightest)}
+.fw-input.is-error .fw-input__field{box-shadow:inset 0 0 0 1px var(--fw-error)}
+.fw-input__msg{align-self:flex-start;padding:2px 4px;border-radius:2px;font-weight:500;font-size:14px;line-height:1.25;color:var(--fw-error-light)}
+.fw-input.is-disabled .fw-input__field{box-shadow:none;color:var(--fw-text-disabled);pointer-events:none}
+.fw-textarea{box-sizing:border-box;width:397px;height:195px;padding:8px;border:0;border-radius:4px;background:#242733;color:#fafbff;font-family:var(--fw-font);font-size:16px;line-height:1.5;box-shadow:inset 0 0 0 1px transparent;resize:none;outline:0}   /* unbound hex */
+.fw-textarea::placeholder{color:#a2a7c0}
+.fw-textarea:hover{box-shadow:inset 0 0 0 1px #7f859f}
+.fw-textarea:focus{box-shadow:inset 0 0 0 1px #fafbff}
+.fw-textarea.is-error{box-shadow:inset 0 0 0 1px #d20019}
+.fw-textarea:disabled{color:#525669}
+.fw-code{display:flex;gap:8px}
+.fw-code input{box-sizing:border-box;width:34px;height:44px;padding:12px 0;border:0;border-radius:4px;background:#242733;box-shadow:inset 0 0 0 1px #fafbff;color:#fafbff;text-align:center;font-family:var(--fw-font);font-size:16px;outline:0}
+
+/* ---- Tabs (467:42422): dark/horizontal, row gap 8, 46 high, bottom rule #414455. Underline thickness not read (2px ASSUMED) ---- */
+.fw-tabs{display:flex;gap:8px;height:46px;box-shadow:inset 0 -1px 0 var(--fw-neutral-medium);font-family:var(--fw-font)}
+.fw-tab{box-sizing:border-box;display:flex;align-items:center;padding:12px;color:var(--fw-text-subtle);font-weight:700;font-size:16px;line-height:1.25;cursor:pointer;border:0;background:none}
+.fw-tab.is-selected{color:var(--fw-text);box-shadow:inset 0 -2px 0 var(--fw-neutral-lightest)}
+.fw-tabs--v{flex-direction:column;height:auto;box-shadow:none}
+
+/* ---- Radio (467:42535 / 1485:37333): 16x16, ring 1 + dot 8 ---- */
+.fw-radio{display:inline-flex;align-items:center;gap:12px;font-family:var(--fw-font);font-size:16px;line-height:1.25;color:var(--fw-text-subtle);cursor:pointer}
+.fw-radio__dot{box-sizing:border-box;width:16px;height:16px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center}
+.fw-radio.is-on{color:var(--fw-text)}
+.fw-radio.is-on .fw-radio__dot::after{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.fw-radio.is-disabled{opacity:.3;pointer-events:none}
+.fw-radios{display:flex;flex-direction:column;gap:16px}.fw-radios--h{flex-direction:row;gap:24px}
+
+/* ---- Notification toast (1196:34498): 324x60, radius 8, #242733. MEASURED (Normal) ---- */
+.fw-toast{box-sizing:border-box;display:flex;align-items:center;gap:12px;width:324px;min-height:60px;border-radius:8px;background:var(--fw-neutral-medium-dark);overflow:hidden;font-family:var(--fw-font);color:var(--fw-text);position:relative}
+.fw-toast__img{width:60px;height:60px;object-fit:cover;flex:none}
+.fw-toast__text{padding:8px 0;font-size:14px;line-height:1.25;flex:1;min-width:0}
+.fw-toast__close{margin-right:8px}
+.fw-toast__cta{background:var(--fw-white-o05);padding:8px 12px 8px 4px}
+
+/* ---- List Item (1995:15742): 328x72, padding 12/16, radius 8, #161822; hover ring 4px radius 12. MEASURED ---- */
+.fw-listitem{box-sizing:border-box;display:flex;align-items:center;gap:16px;width:328px;height:72px;padding:12px 16px;border-radius:8px;background:var(--fw-neutral-darker);font-family:var(--fw-font);font-size:16px;color:var(--fw-text);position:relative}
+.fw-listitem:hover,.fw-listitem.h{outline:4px solid var(--fw-neutral-lightest);outline-offset:0;border-radius:8px}
+
+/* ---- 1:1 Card (1810:16143): Square 96x148 (thumb 96, gap 12, footer 40), radius 16. Circle/Hover not read ---- */
+.fw-tile{display:flex;flex-direction:column;gap:12px;width:96px;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-tile__thumb{box-sizing:border-box;position:relative;width:96px;height:96px;border-radius:16px;background:var(--fw-neutral-darker);box-shadow:inset 0 0 0 2px #fff;display:flex;align-items:center;justify-content:center}
+.fw-tile__thumb>img{width:77px;height:48px;object-fit:contain}
+.fw-tile__foot{height:40px;font-weight:600;font-size:16px;line-height:1.25;overflow:hidden;text-align:center}
+.fw-tile--circle .fw-tile__thumb{border-radius:50%}   /* ASSUMED */
+
+/* ---- About Field (467:5644): bottom rule #414455, label 18 / value 16, gap 4. MEASURED ---- */
+.fw-about{box-sizing:border-box;width:256px;padding-bottom:12px;box-shadow:inset 0 -1px 0 var(--fw-neutral-medium);font-family:var(--fw-font);display:flex;flex-direction:column;gap:4px}
+.fw-about__label{font-weight:600;font-size:18px;line-height:1.25;color:var(--fw-text)}
+.fw-about__value{font-size:16px;line-height:1.25;color:var(--fw-text-subtle)}
+
+/* ---- DVR Status Widget (467:42369) Stacked 318x237. MEASURED ---- */
+.fw-dvr{box-sizing:border-box;display:flex;flex-direction:column;gap:16px;width:318px;padding:16px 24px;border-radius:8px;background:var(--fw-neutral-darker);font-family:var(--fw-font);color:var(--fw-text)}
+.fw-dvr__info{display:flex;flex-direction:column;gap:8px}
+.fw-dvr__eyebrow{font-weight:500;font-size:12px;color:var(--fw-text-subtlest)}
+.fw-dvr__count{font-weight:600;font-size:20px;line-height:1.25}
+.fw-dvr__pct{font-size:12px}
+.fw-dvr__warn{display:flex;align-items:center;gap:8px;height:16px;font-size:12px;color:#ffd332}
+.fw-dvr__actions{display:flex;flex-direction:column;gap:12px}
+
+/* ---- Score card (2070:14295) base: 328x237, #161822, radius 16 ---- */
+.fw-score{box-sizing:border-box;width:328px;display:flex;flex-direction:column;gap:16px;padding-top:16px;border-radius:16px;background:var(--fw-neutral-darker);overflow:hidden;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-score__head{display:flex;flex-direction:column;gap:4px;padding:0 16px}
+.fw-score__league{font-weight:600;font-size:18px}.fw-score__week{font-size:12px;color:var(--fw-text-subtlest)}
+.fw-score__teams{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 16px}
+.fw-score__foot{padding:16px;background:var(--fw-neutral-dark);display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--fw-text-subtlest)}
+.fw-score__bar{display:flex;gap:4px;height:4px}.fw-score__bar>i{border-radius:var(--fw-circle);background:var(--fw-green)}.fw-score__bar>i+i{background:var(--fw-neutral-lightest)}
+
+/* ---- Scorebug (1271:41072) SM base 294x40, radius 8, scrim-lighter. Other sizes/sports not read ---- */
+.fw-scorebug{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:32px;height:40px;padding:0 16px;border-radius:8px;background:var(--fw-scrim-lighter);font-family:"Barlow Condensed",var(--fw-font);font-weight:700;font-size:24px;color:var(--fw-text)}
+.fw-scorebug__clock{display:flex;gap:16px;font-family:var(--fw-font);font-weight:700;font-size:12px}
+
+/* ---- EPG Container (467:42107): header 48, rows 108, gap 12, radius 4 cells. MEASURED (Default) ---- */
+.fw-epg{display:flex;flex-direction:column;gap:12px;font-family:var(--fw-font);color:var(--fw-text);position:relative}
+.fw-epg__row{display:flex;gap:12px;height:108px}
+.fw-epg__chan{box-sizing:border-box;flex:none;width:152px;height:108px;padding:22px 24px;border-radius:4px;background:var(--fw-neutral-darker);display:flex;align-items:center;justify-content:center}
+.fw-epg__thumb{flex:none;width:192px;height:108px;border-radius:8px;overflow:hidden;background:var(--fw-neutral-dark)}
+.fw-epg__thumb>img{width:100%;height:100%;object-fit:cover}
+.fw-epg__prog{box-sizing:border-box;height:108px;width:var(--w,272px);padding:16px;border-radius:4px;background:var(--fw-neutral-darker);overflow:hidden}
+.fw-epg__prog.is-now{background:var(--fw-neutral-medium-dark)}
+.fw-epg__prog b{display:block;font-weight:600;font-size:16px;line-height:1.25}
+.fw-epg__prog span{font-size:14px;color:var(--fw-text-subtle)}
+.fw-epg__now{position:absolute;top:0;bottom:0;width:2px;background:#ff3a03}   /* unbound hex */
+
+/* ---- Up Next (878:32455) LG: scrim black-o60, bottom block 1344x211 ---- */
+.fw-upnext{position:relative;display:flex;align-items:flex-end;justify-content:center;font-family:var(--fw-font);color:var(--fw-text);background:var(--fw-black-o60)}
+.fw-upnext__bottom{box-sizing:border-box;display:flex;justify-content:space-between;gap:592px;width:1344px;padding:0 0 48px}
+
+/* ---- Empty state (467:42360): centered 768 wide, padding 144 0, gap 24 ---- */
+.fw-empty{box-sizing:border-box;width:768px;padding:144px 0;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center;font-family:var(--fw-font);color:var(--fw-text)}
+.fw-empty h2{margin:0;font-size:24px;font-weight:600}.fw-empty p{margin:0;font-size:16px}
